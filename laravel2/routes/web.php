@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
+    return view('products.index'); // Puisque vous avez créé index.blade.php dans le dossier product
+});
+Route::get('/', function () {
     return view('welcome');
 });
 
