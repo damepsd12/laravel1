@@ -1,8 +1,13 @@
 services:
-  - type: web
-    name: laravel-app
+  web:
+    type: web
+    name: my-laravel-app
     env: php
-    runtime: php
-    plan: free
-    buildCommand: "composer install --no-dev"
-    startCommand: "php artisan serve --host 0.0.0.0 --port 10000"
+    buildCommand: |
+      # Installer Composer
+      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      # Exécuter la commande composer install
+      composer install --no-dev
+    startCommand: |
+      # Démarrer l'application Laravel
+      php artisan serve --host=0.0.0.0 --port=$PORT
