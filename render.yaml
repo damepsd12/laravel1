@@ -1,13 +1,40 @@
 services:
-  web:
-    type: web
-    name: my-laravel-app
+  - type: web
+    name: laravel-app
     env: php
-    buildCommand: |
-      # Installer Composer
-      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-      # Exécuter la commande composer install
-      composer install --no-dev
-    startCommand: |
-      # Démarrer l'application Laravel
-      php artisan serve --host=0.0.0.0 --port=$PORT
+    buildCommand: 
+      - composer install --no-dev
+    startCommand: php artisan serve
+    envVars:
+      - key: PHP_VERSION
+        value: 8.1
+
+# services:
+#   web:
+#     type: web
+#     name: my-laravel-app
+#     env: php
+#     buildCommand: |
+#       # Installer Composer
+#       curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#       # Vérifier si Composer est bien installé (facultatif, mais utile pour le débogage)
+#       composer --version
+#       # Exécuter la commande composer install
+#       composer install --no-dev
+#     startCommand: |
+#       # Démarrer l'application Laravel
+#       php artisan serve --host=0.0.0.0 --port=$PORT
+
+# services:
+#   web:
+#     type: web
+#     name: my-laravel-app
+#     env: php
+#     buildCommand: |
+#       # Installer Composer
+#       curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#       # Exécuter la commande composer install
+#       composer install --no-dev
+#     startCommand: |
+#       # Démarrer l'application Laravel
+#       php artisan serve --host=0.0.0.0 --port=$PORT
