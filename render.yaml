@@ -2,6 +2,7 @@ services:
   - type: web
     name: laravel
     env: php
+    dockerfilePath: ./Dockerfile
     buildCommand: composer install --no-dev --optimize-autoloader
     startCommand: php artisan serve --host 0.0.0.0 --port 8080
     envVars:
