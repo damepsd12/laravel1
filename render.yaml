@@ -3,3 +3,4 @@ services:
     name: laravel1
     env: docker
     dockerfilePath: ./Dockerfile
+    # dockerfilePath: ./Dockerfile
